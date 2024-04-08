@@ -26,6 +26,23 @@ I want to click the Artists button on the top bar.
 1. Add an Artists button to the top bar and connect it to the artists list.
    
 # 2. Display list of items that contains a way to navigate to view, create, edit, delete 
+As a Web designer
+So that I can see a list of all the artists
+I click the Artists button from the top bar and I am directed to a list of all of the artists on the app
+
+**Requirements**
+1. Create an artists list template
+2. Add it to URLs and views
+## S4 
+As an Artist who is logged in 
+So that I can see a list of the art on the website
+I want to select the art from the top panel to see a list of all of the art on the app
+**Requirements**
+1. create an Art view template.
+2. Add it to URLs and views
+
+
+
 # 3. Display detailed list of item information
 # 4. Forms to create/update/delete item information
 
