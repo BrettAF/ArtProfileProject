@@ -137,7 +137,25 @@ I want to see an image with the link of the web designer
 1. add an image displaying the website designer to the top bar
    
 # 10. Some type of organized layout to display listed items 
+As a web designer  
+so that I can see what is most important for me to be doing next  
+I want to see the list of new artwork in reverse order
+**Requirements**
+1. Make the list of new artwork in reverse order by ID
+
 # 11. Buttons to create, edit and delete
+I Have included these user stories and requirements under each part above
 # 12. Incorporate at least 4 items to make your web app accessible for people with varied abilities.
+## S16
+As a person who struggles to navigate websites, 
+So that I can view a list on this website clearly
+I want to have lists be clearly labeled with headings, subheadings, and details.
+**Requirements**
+1. use clear headings and styles to make the page useable
 # 13. Be responsive to different sized screens
+As a person who wants to view this app on a phone
+So that I can view it on my screen regardless of its size
+I want to have a responsive website
+**Requirements**
+1. Use containers and divs to make the website responsive
 
