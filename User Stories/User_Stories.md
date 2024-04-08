@@ -68,7 +68,29 @@ So that I can be directed to a form to add a new piece of art
 ## S7
 As an artist who is logged in
 
-So that I can 
+So that I can edit the details of an artwork that has been previously created
+
+I want to click the edit button on the art details page to be given a form that is filled out with all the previous information
+
+**Requirements**
+1. create an edit artwork url and view
+2. add the button to the artwork details button
+## S8
+As an artist who is logged in
+so that I can view the details of a piece of art  
+I want to select the View button form the index page,  
+Or the View button from the Art list,  
+Or the View button from the Profile page  to bring up a list of the details for an artwork
+**Requirements**
+1. Create an Artwork details page
+1. Regester it un urls and views
+1. add buttons to the Art list page, the Index page, and the Portfolio page
+
+## S9 
+As an artist who is logged in  
+So that I can delete a piece of art  
+I want to 
+
 
 
 # 3. Display detailed list of item information
