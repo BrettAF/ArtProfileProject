@@ -1,7 +1,9 @@
 # 1. Display home page - overview of app and any other information you would like on home page.
 ## S1
 As a Web Designer 
+
 So that I can view what needs to be done on my own websites
+
 I want to see a list of pending work on the index page
 
 **Requirements**
@@ -10,7 +12,9 @@ I want to see a list of pending work on the index page
 3. Add a list artwork that still needs to be added
 ## S2
 As an artist who is logged in
+
 So that I can view the art on the site 
+
 I want to click the Art button on the top bar to see all of the art on the website
 
 **Requirements**
@@ -19,28 +23,52 @@ I want to click the Art button on the top bar to see all of the art on the websi
 
 ## S3
 As a Website designer 
+
 So that I can view a list of Artists on this web app
+
 I want to click the Artists button on the top bar. 
 
 **Requirements**
 1. Add an Artists button to the top bar and connect it to the artists list.
    
 # 2. Display list of items that contains a way to navigate to view, create, edit, delete 
+## S4
 As a Web designer
+
 So that I can see a list of all the artists
+
 I click the Artists button from the top bar and I am directed to a list of all of the artists on the app
 
 **Requirements**
 1. Create an artists list template
 2. Add it to URLs and views
-## S4 
+## S5 
 As an Artist who is logged in 
+
 So that I can see a list of the art on the website
+
 I want to select the art from the top panel to see a list of all of the art on the app
+
 **Requirements**
 1. create an Art view template.
 2. Add it to URLs and views
+## S6
+As an Artist who is logged in 
 
+I want to select the Add Art button from the top pannel
+
+So that I can be directed to a form to add a new piece of art
+
+
+**Requirements**
+1. create a form for adding art
+2. create a template for the page
+3. Regester it under views and urls
+4. connect the button to the top pannel
+## S7
+As an artist who is logged in
+
+So that I can 
 
 
 # 3. Display detailed list of item information
