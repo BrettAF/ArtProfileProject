@@ -41,7 +41,7 @@ As an artist who is logged in
 so that I can view the details of a piece of art  
 I want to select the View button from the index page,  
 Or the View button from the Art list,  
-Or the View button from the Profile page  to bring up a list of the details for an artwork
+Or the View button from the Profile page  to bring up a list of the details for an artwork  
 **Requirements**
 1. Create an Artwork details page  - 20 min
 1. Regester it un urls and views  - 10 min
@@ -63,7 +63,7 @@ As an artist who is logged in
 So that I can see the details of an artwork,  
 I want to select the View button from the list of artwork on the Index page 
 Or the list of artwork on the Art list Page,  
-Or the list of artwork on the Art Profile page to view a detailed list of information about that artwork
+Or the list of artwork on the Art Profile page to view a detailed list of information about that artwork  
 **Requirements**
 1. Create a view Artwork template  - 20 min
 2. Add View Art to URLs and views  - 10 min
@@ -72,7 +72,7 @@ Or the list of artwork on the Art Profile page to view a detailed list of inform
 ## S8
 As an artist who is logged in
 So that I can view the details and list of profiles for an artist  
-I want to select the artist from the list to bring up the Artist's details and their profiles. 
+I want to select the artist from the list to bring up the Artist's details and their profiles.  
 **Requirements**
 1. Create an artists details template  - 10 min
 2. Add Artist's details to the Views and URLs  - 10 min
@@ -82,7 +82,7 @@ I want to select the artist from the list to bring up the Artist's details and t
 ## S9
 As an artist who is logged in  
 So that I can view information about a specific portfolio  
-I want to click the view button on the list of portfolios on the artist's detail page.  
+I want to click the view button on the list of portfolios on the artist's detail page.   
 **Requirements**
 1. Create a portfolio details template - 20 min
 2. Add Portfolio Details to URLs and Views  - 10 min
@@ -126,7 +126,7 @@ I want to select the Home button from the top bar
 ## S14
 As a person who struggles to navigate websites for health reasons
 I want to have buttons that are distinct colors
-So that the website is easy to navigate
+So that the website is easy to navigate  
 **Requirements**
 1. Add colors to the buttons on the website. - 10 min
 
@@ -134,14 +134,14 @@ So that the website is easy to navigate
 ## S15
 As an artist   
 so that I know what website I am on  
-I want to see an image with the link to the web designer 
+I want to see an image with the link to the web designer   
 **Requirements**
 1. add an image displaying the website designer to the top bar - 10 min
    
 # 10. Some type of organized layout to display listed items 
 As a web designer  
 so that I can see what is most important for me to be doing next  
-I want to see the list of new artwork in reverse order
+I want to see the list of new artwork in reverse order  
 **Requirements**
 1. Make the list of new artwork in reverse order by ID  - 10 min
 
@@ -150,16 +150,16 @@ I Have included these user stories and requirements under each appropriate part 
 
 # 12. Incorporate at least 4 items to make your web app accessible for people with varied abilities.
 ## S16
-As a person who struggles to navigate websites, 
-So that I can view a list on this website clearly
-I want to have lists be clearly labeled with headings, subheadings, and details.
+As a person who struggles to navigate websites,   
+So that I can view a list on this website clearly  
+I want to have lists be clearly labeled with headings, subheadings, and details.  
 **Requirements**
 1. use clear headings and styles to make the page useable - 10 min
 
 # 13. Be responsive to different sized screens
-As a person who wants to view this app on a phone
-So that I can view it on my screen regardless of its size
-I want to have a responsive website
+As a person who wants to view this app on a phone  
+So that I can view it on my screen regardless of its size  
+I want to have a responsive website  
 **Requirements**
 1. Use containers and divs to make the website responsive  - 20 min
 
