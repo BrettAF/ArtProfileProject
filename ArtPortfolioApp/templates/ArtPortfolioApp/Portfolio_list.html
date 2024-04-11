@@ -1,0 +1,27 @@
+
+<!-- inherit from base.html-->
+{% extends "ArtPortfolioApp/base_template.html" %}
+
+<!-- Replace block content in base_template.html -->
+{% block content %}
+<h1>Art</h1>
+
+<ul class = "list-group">
+    {% for art in object_list %}
+    <li class="list-group-item">
+        {{art.title}}
+        <p>by {{art.portfolio.Artist.name}}
+        in their {{art.portfolio}} portfolio </p>
+        {% if art.is_for_sale %}
+            price {{art.price}}
+        </p>
+            
+            
+        {% endif %}
+
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

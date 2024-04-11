@@ -1,0 +1,17 @@
+{% extends "ArtPortfolioApp/base_template.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Artwork</title>
+</head>
+<body>
+    <h1>Edit Artwork </h1>
+    <form>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="Submit" class ="btn btn-secondary">Update</button>
+    </form>
+</body>
+</html>
+{% endblock %}
