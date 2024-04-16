@@ -14,6 +14,7 @@
 <ul class = "list-group">
     {% for art in artwork_needs_adding %}
     <li class="list-group-item">
+       <img src="{{ art.image.url }}" class="img-responsive" style="height: 100px; float: left; margin-right: 10px;" />
        <h3> {{art.title}} </h3>
         <p>by {{art.portfolio.Artist.name}}
         in their {{art.portfolio}} portfolio </p>

@@ -29,13 +29,14 @@ class PortfolioForm(ModelForm):
         model = Portfolio
         fields = ["title", "description"]
 
-#class CreateUserForm(ModelForm):
-#    class Meta:
-#        model = User
-#        fields = ["",]
-
-class ArtistForm(ModelForm):
+class CreateUserForm(UserCreationForm):
     class Meta:
-        model = Artist
-        fields = ["name","email"]
+        model = User
+        fields = ["username",'email','password1',"password2"]
+
+        
+class ArtistForm(ModelForm):
+    fields='__all__'
+    exclude=['user',"is_webdesigner"]
+        
         

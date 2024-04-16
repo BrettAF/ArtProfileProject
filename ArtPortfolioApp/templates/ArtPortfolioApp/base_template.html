@@ -31,7 +31,8 @@
              <a class="btn btn-outline-secondary" href="{% url 'Artist_list' %}" > Artists</a>
              <a class="btn btn-outline-secondary" href="{% url 'Artwork_list' %}"> Art</a>
              <a class="btn btn-outline-secondary" href="{% url 'Artwork_add' %}"> Add Art</a>
-             <a class="btn btn-outline-secondary" href="{% url 'Portfolio_create' %}"> Create a new Portfolio</a>
+             {{user.artist.id}}
+             <a class="btn btn-outline-secondary" href="{% url 'Portfolio_create'  %}3"> Create a new Portfolio</a>
              {% if user.is_authenticated %}
                <a class="btn btn-secondary" href="{% url 'logout' %}?next={{ request.path }}">Logout {{user}}</a>
              {% else %}

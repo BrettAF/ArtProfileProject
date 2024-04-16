@@ -10,17 +10,23 @@
     {% if object.needs_to_be_added %} 
         <strong>This item still needs to be added to the website</strong><br>
     {% endif%}
-    by: {{object.portfolio.artist}} <br> 
-    description: {{object.description}}    <br> 
+    <img src="{{ object.image.url }}" class="img-responsive" style="height: 300px; float: left; margin-right: 10px;" />
+    image: {{object.image}}<br>
+    by: {{object.portfolio.Artist}} <br> 
+    portfolio: {{object.portfolio}} <br>
 
     {% if object.is_for_sale%}
         Price: {{object.price}} <br>
     {% endif%}
     size in inches: {{object.size_inches}} <br>
     {{object.image}} <br>
-    portfolio: {{object.portfolio}} <br>
+    
+    description: {{object.description}}    <br> 
+
     <a class="btn btn-primary" href="{% url 'Artwork_edit' object.id %}"> Edit </a>
+    <a class="btn btn-primary" href="{% url 'Artwork_edit' object.id %}"> Download</a>
     <a class="btn btn-outline-danger" href="{% url 'Artwork_delete' object.id %}"> Delete </a>
+    
 </p>
 {% endblock %}
 
