@@ -9,14 +9,17 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import Group
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+from .decorators import allowed_users
 
 # Create your views here.
 
 def index(request):
 # Render index.html
     artwork_needs_adding=Artwork.objects.all().filter(needs_to_be_added=True).order_by('id')
+    show_button= request.user.groups.all().filter(name='web-designer')
     #print("artwork_needs_adding query set", artwork_needs_adding)
-    return render( request, 'ArtPortfolioApp/index.html',{'artwork_needs_adding':artwork_needs_adding})
+    return render( request, 'ArtPortfolioApp/index.html',{'artwork_needs_adding':artwork_needs_adding, "show_button":show_button})
 
 def stub(request):
    return render(request,"ArtPortfolioApp/stub.html")
@@ -41,6 +44,7 @@ class ArtistListView(ListView):
     model=Artist
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        
         return context
     
 class PortfolioListView(ListView):
@@ -55,27 +59,26 @@ class ArtworkListView(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-
+@login_required(login_url="login")
 def ArtworkAdd(request):
     submitted = False
-    print(f"request{request}")
-    print(submitted)
     if request.method == "POST":
-      form=ArtworkForm(request.POST)
-      print('Printing POST',request.POST)
+      form=ArtworkForm(request.user, request.POST, request.FILES)
+
 
       if form.is_valid():
           print("valid")
           form.save()
-          return redirect('/ArtworkAdd?submitted=True') 
+          return redirect('index') 
     else: 
         print("not valid")
-        form=ArtworkForm()
+        form=ArtworkForm(request.user)
         if 'submitted' in request.GET:
             submitted=True
 
     return render(request, "ArtPortfolioApp/create_artwork.html", {"form":form, 'submitted':submitted} )
-    
+
+@login_required(login_url="login")    
 def ArtworkEdit(request, Artwork_id):
     artwork=Artwork.objects.get(pk=Artwork_id)
     form=ArtworkForm(request.POST or None,instance=artwork)
@@ -91,27 +94,37 @@ def ArtworkView(request, Artwork_id):
     return render((request, 'display_artwork.html',
                        {'Artwork_images': artwork}))
     
-    
+@login_required(login_url="login")   
 def ArtworkDelete(request, Artwork_id):
     artwork=Artwork.objects.get(pk=Artwork_id)
-    artwork.delete()
+    if artwork.portfolio.Artist.user == request.user:
+        artwork.delete()
+        
     return redirect('index')
 
+@login_required(login_url="login")
+@allowed_users(allowed_roles=["web-designer"])
 def MarkAdded(request, Artwork_id):
     artwork=Artwork.objects.get(pk=Artwork_id)
     artwork.needs_to_be_added=False
     artwork.save()
     return redirect('index')
 
-def PortfolioCreate(request, Artist_id):
-    artist=Artist.objects.get(pk=Artist_id)
+@login_required(login_url="login")
+def PortfolioCreate(request):
+    artist=Artist.objects.get(user=request.user)
+
     submitted = False
     form = PortfolioForm(request.POST)
     if form.is_valid():
-          form.save()
-          return redirect('/PortfolioCreate?submitted=True') 
+        port= form.save(commit=False)
+        port.Artist=artist
+        print("*******************")
+
+        port.save()
+        return redirect('index') 
     else: 
-        form=ArtworkForm()
+        form=PortfolioForm()
         if 'submitted' in request.GET:
             submitted=True
     return render(request, "ArtPortfolioApp/create_ArtPortfolio.html", {"form":form, 'submitted':submitted} )
@@ -151,14 +164,16 @@ def registerPage(request):
         if form.is_valid():
             user=form.save()
             username=form.cleaned_data.get('username')
-            #group=Group.objects.get(name='artist')
-            #user.groups.add(group)
-            artist = Artist.objects.create(user=user)
-            #artist.objects.name=
+            group=Group.objects.get(name='Artist')
+            user.groups.add(group)
+            artist = Artist.objects.create()
+            artist.user=user
+            artist.name= form.cleaned_data["artist_name"]
+            artist.about_me = form.cleaned_data["about_me"]
             artist.save()
             
             messages.success(request,'Account was created for '+username)
-            return redirect('ArtPortfolioApp/Artist_create')
+            return redirect('index')
         
     context = {'form':form}
     return render( request,'ArtPortfolioApp/registration/register.html', context)
@@ -176,7 +191,10 @@ def ArtistCreate(request):
     from django.contrib.auth import logout
 
 
-def logout_view(request):
+def logout_page(request):
     logout(request)
-    return('ArtPortfolioApp/login')
+    return redirect( 'login')
     # Redirect to a success page.
+    
+    
+    

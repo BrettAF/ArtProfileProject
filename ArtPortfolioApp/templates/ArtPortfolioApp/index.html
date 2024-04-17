@@ -24,7 +24,11 @@
         {% endif %}
         needs to be added
         <a class="btn btn-primary" href="{{ art.get_absolute_url }}"> View </a>
-        <a class="btn btn-primary" href="{% url 'Artwork_mark_added' art.id %}"> Mark as Completed </a>
+        
+        {% if user.is_authenticated and show_button %}
+            <a class="btn btn-primary" href="{% url 'Artwork_mark_added' art.id %}"> Mark as Completed </a>
+        {% endif %}
+        
     </li>
     {% endfor %}
 </div>

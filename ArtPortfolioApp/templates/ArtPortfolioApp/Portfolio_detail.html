@@ -3,9 +3,11 @@
 
 <!-- Replace block content in base_template.html -->
 {% block content %}
-
+<div class="container-fluid">
 <h1>{{portfolio.name}}</h1>
-<p> {{portfolio.description}}
+
+<p>portfolio description:
+     {{portfolio.description}}</p>
 <h2>Art in this Portfolio</h2>
 <ul class = "list-group">
     {% for i in artwork %}
@@ -18,4 +20,4 @@
 </ul>
 
 {% endblock %}
-
+</div>
