@@ -1,0 +1,23 @@
+<!-- inherit from base.html-->
+{% extends "ArtPortfolioApp/base_template.html" %}
+
+<!-- Replace block content in base_template.html -->
+{% block content %}
+
+<h1>{{object.name}}</h1>
+<strong>about me:</strong>
+{{object.about_me}}
+<p>
+<h2>Portfolios</h2>
+<ul class = "list-group">
+    {% for i in portfolios %}
+    <strong><p>
+    <li class="list-group-item">
+        <p>        {{i.title}}</p>
+        <a class="btn btn-secondary" href="{{i.get_absolute_url}}"> View </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+

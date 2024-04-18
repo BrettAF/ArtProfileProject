@@ -1,0 +1,25 @@
+{% extends "ArtPortfolioApp/base_template.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a new Artist</title>
+</head>
+<body>
+<div class="container">
+    <h1>Create a new Artist </h1>
+    <p> </p>
+    {% if submitted %}
+        Submitted sucessfuly
+    {% else %}
+
+    <form action='' method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="Submit" class ="btn btn-secondary">Create</button>
+    </form>
+    {% endif %}
+</div>
+</body>
+</html>
+{% endblock %}

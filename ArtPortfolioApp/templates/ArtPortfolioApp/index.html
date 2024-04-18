@@ -1,0 +1,36 @@
+<!-- inherit from base.html-->
+{% extends "ArtPortfolioApp/base_template.html" %}
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Artwork</title>
+</head>
+
+<!-- Replace block content in base_template.html -->
+{% block content %}
+
+<h1>New Artwork</h1>
+<divclass="container">
+<ul class = "list-group">
+    {% for art in artwork_needs_adding %}
+    <li class="list-group-item">
+       <img src="{{ art.image.url }}" class="img-responsive" style="height: 100px; float: left; margin-right: 10px;" />
+       <h3> {{art.title}} </h3>
+        <p>by {{art.portfolio.Artist.name}}
+        in their {{art.portfolio}} portfolio </p>
+        {% if art.is_for_sale %}
+            price {{art.price}}
+        </p>  
+        {% endif %}
+        needs to be added
+        <a class="btn btn-primary" href="{{ art.get_absolute_url }}"> View </a>
+        
+        {% if user.is_authenticated and show_button %}
+            <a class="btn btn-primary" href="{% url 'Artwork_mark_added' art.id %}"> Mark as Completed </a>
+        {% endif %}
+        
+    </li>
+    {% endfor %}
+</div>
+</ul>
+{% endblock %}

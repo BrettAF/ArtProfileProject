@@ -1,0 +1,31 @@
+
+<!-- inherit from base.html-->
+{% extends "ArtPortfolioApp/base_template.html" %}
+
+<!-- Replace block content in base_template.html -->
+{% block content %}
+<divclass="container">
+<h1>Art</h1>
+
+<ul class = "list-group">
+    {% for art in object_list %}
+    <li class="list-group-item">
+        {{art.title}}
+        <img src="{{ art.image.url }}" class="img-responsive" style="height: 100px; float: left; margin-right: 10px;" />
+        <p>by {{art.portfolio.Artist.name}}
+        in their {{art.portfolio}} portfolio </p>
+        {% if art.is_for_sale %}
+            price {{art.price}}
+        </p>  
+        {% endif %}
+        <a class="btn btn-primary" href="{{ art.get_absolute_url }}"> View </a>
+        <a class="btn btn-outline-danger" href="{% url 'Artwork_delete' art.id %}"> Delete </a>
+        {% if art.portfolio.Artist.user == request.user %}
+            <a class="btn btn-outline-danger" href="{% url 'Artwork_delete' art.id %}"> Delete </a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+{% endblock %}

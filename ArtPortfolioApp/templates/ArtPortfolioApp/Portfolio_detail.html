@@ -1,0 +1,23 @@
+<!-- inherit from base.html-->
+{% extends "ArtPortfolioApp/base_template.html" %}
+
+<!-- Replace block content in base_template.html -->
+{% block content %}
+<div class="container-fluid">
+<h1>{{portfolio.name}}</h1>
+
+<p>portfolio description:
+     {{portfolio.description}}</p>
+<h2>Art in this Portfolio</h2>
+<ul class = "list-group">
+    {% for i in artwork %}
+    <strong><p>
+    <li class="list-group-item">
+        <p>        {{i.title}}</p>
+        <a class="btn btn-secondary" href="{{i.get_absolute_url}}"> View </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+</div>
